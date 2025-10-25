@@ -39,7 +39,7 @@ services:
   postgres:
     image: 'postgres:14.0'
     ports:
-      - "5435:5432"
+      - "5437:5432"
     restart: always
     deploy:
       mode: replicated
