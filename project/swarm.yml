@@ -1,10 +1,15 @@
 version: '3'
 
 services:
+
+  front-end:
+    image: yerlan1/front-end:1.0.0
+    deploy:
+      mode: replicated
+      replicas: 1
+
   brokser-service:
-    image: yerlan1/broker-service:1.0.0
-    ports:
-      - "8080:80"
+    image: yerlan1/broker-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
@@ -24,7 +29,7 @@ services:
       DSN: "host=postgres port=5432 user=postgres password=password dbname=users sslmode=disable timezone=UTC connect_timeout=5"
 
   logger-service:
-    image: yerlan1/logger-service:1.0.0
+    image: yerlan1/logger-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
